@@ -6,4 +6,4 @@ Erros identificados no projeto:
 4 - O aplicativo mostra o quociente de divisões por 0 como o próprio dividendo; #
 5 - As demais combinações de divisão resultam em quocientes incorretos; #
 6 - O aplicativo não realiza operações de porcentagem; #
-7 - O aplicativo não suporta números negativos;
+7 - O aplicativo não suporta números negativos; #
