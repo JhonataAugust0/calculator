@@ -32,12 +32,21 @@ export default function App() {
           setCurrentNumber('Erro');
         }
         return;
+      case '%':
+        setCurrentNumber((fistNumber * (lastNumber / 100)).toString());
+        return;
     }
   }
 
   function handleInput(buttonPressed: string){
     console.log(buttonPressed); // Mostra no Console a tecla pressionada
-    if(buttonPressed === '+' || buttonPressed === '-' || buttonPressed === 'x' || buttonPressed === '/' ){
+    if (
+      buttonPressed === '+' ||
+      buttonPressed === '-' ||
+      buttonPressed === 'x' ||
+      buttonPressed === '/' ||
+      buttonPressed === '%'
+    ) {
       setCurrentNumber(currentNumber + ' ' + buttonPressed + ' ');
       return;
     }
