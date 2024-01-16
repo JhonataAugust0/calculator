@@ -1,0 +1,5 @@
+1 - Exibir no topo da tela a operação que originou o resultado exibido; #
+2 - Alteração das cores do app; #
+3 - Correção da oredem dos números no teclado; #
+4 - Botão Del deletar apenas um número; #
+5 - Botão de inversão de sinal; #
