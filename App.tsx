@@ -26,7 +26,11 @@ export default function App() {
         setCurrentNumber((fistNumber * lastNumber).toString());
         return;
       case '/':
-        setCurrentNumber((fistNumber - lastNumber).toString());
+        if (lastNumber !== 0) {
+          setCurrentNumber((fistNumber / lastNumber).toString());
+        } else {
+          setCurrentNumber('Erro');
+        }
         return;
     }
   }
