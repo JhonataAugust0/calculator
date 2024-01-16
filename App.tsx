@@ -1,57 +1,56 @@
 import React from 'react';
-import {useState} from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, Button } from 'react-native';
+import {useState} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 export default function App() {
   // Mapeamento de teclas
-  const buttons = ['LIMPAR', 'DEL', '%', '/', 7, 8, 9, 'x', 6, 5, 4, '-', 3, 2, 1, '+', 0, '.', '+/-', '=']
-  const [currentNumber, setCurrentNumber] = useState('')
-  const [lastNumber, setLastNumber] = useState('')
-
+  const buttons = ['LIMPAR', 'DEL', '%', '/', 7, 8, 9, 'x', 6, 5, 4, '-', 3, 2, 1, '+', 0, '.', '+/-', '='];
+  const [currentNumber, setCurrentNumber] = useState('');
+  const [lastNumber, setLastNumber] = useState('');
 
   function calculator(){
-    const splitNumbers = currentNumber.split(' ')
-    const fistNumber = parseFloat(splitNumbers[0])
-    const lastNumber = parseFloat(splitNumbers[2])
-    const operator = splitNumbers[1]
+    const splitNumbers = currentNumber.split(' ');
+    const fistNumber = parseFloat(splitNumbers[0]);
+    const lastNumber = parseFloat(splitNumbers[2]);
+    const operator = splitNumbers[1];
 
     // Faz ação referente tecla pressionada
     switch(operator){
       case '+':
-        setCurrentNumber((fistNumber + lastNumber).toString())
-        return
+        setCurrentNumber((fistNumber + lastNumber).toString());
+        return;
       case '-':
-        setCurrentNumber((fistNumber - lastNumber).toString())
-        return
+        setCurrentNumber((fistNumber - lastNumber).toString());
+        return;
       case 'x':
-        setCurrentNumber((fistNumber + lastNumber).toString())
-        return
+        setCurrentNumber((fistNumber * lastNumber).toString());
+        return;
       case '/':
-        setCurrentNumber((fistNumber - lastNumber).toString())
-        return
+        setCurrentNumber((fistNumber - lastNumber).toString());
+        return;
     }
   }
 
   function handleInput(buttonPressed: string){
-    console.log(buttonPressed) // Mostra no Console a tecla pressionada
+    console.log(buttonPressed); // Mostra no Console a tecla pressionada
     if(buttonPressed === '+' || buttonPressed === '-' || buttonPressed === 'x' || buttonPressed === '/' ){
-      setCurrentNumber(currentNumber + ' ' + buttonPressed + ' ')
-      return
+      setCurrentNumber(currentNumber + ' ' + buttonPressed + ' ');
+      return;
     }
     switch(buttonPressed){
       case 'DEL':
-        setCurrentNumber(currentNumber.substring(0, (currentNumber.length - 2)))
-        return
+        setCurrentNumber(currentNumber.substring(0, currentNumber.length - 2));
+        return;
       case 'LIMPAR': // Limpa todo o conteúdo
-        setLastNumber('')
-        setCurrentNumber('')
-        return
+        setLastNumber('');
+        setCurrentNumber('');
+        return;
       case '=':
-        setLastNumber(currentNumber + ' = ')
-        calculator()
-        return
+        setLastNumber(currentNumber + ' = ');
+        calculator();
+        return;
       case '+/-':
-        return
+        return;
     }
     setCurrentNumber(currentNumber + buttonPressed)
   }
@@ -70,8 +69,7 @@ export default function App() {
                 <TouchableOpacity
                   onPress={() => handleInput(button)}
                   key={button}
-                  style={[styles.button, {backgroundColor: '#3dd0e3'}]}
-                >
+                  style={[styles.button, {backgroundColor: '#3dd0e3'}]}>
                   <Text style={[styles.textButton, {color: 'white', fontSize: 30}]}>
                     {button}
                   </Text>
@@ -91,7 +89,7 @@ export default function App() {
                     {button}
                   </Text>
                 </TouchableOpacity>
-              )
+              ),
             )}
           </View>
         </View>
@@ -115,9 +113,9 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: 'bold',
     padding: 12,
-    textAlign: 'right'
+    textAlign: 'right',
   },
-  historyText:{
+  historyText: {
     color: '#7c7c7c',
     fontSize: 20,
     marginRight: 10,
